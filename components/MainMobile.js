@@ -62,7 +62,7 @@ const Main = ({ imagesMobile, info, imprint }) => {
               style={{ textDecoration: "underline" }}
             >
               Instagram
-            </a>
+            </a> 
             <br />
             <a
               onClick={() => setShowImprint(true)}
