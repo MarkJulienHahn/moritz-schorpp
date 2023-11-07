@@ -19,7 +19,7 @@ export default async function Home() {
 
   return (
     <main className={styles.main}>
-      <div className={styles.desktop}>
+      {/* <div className={styles.desktop}>
         <Main
           imagesLeft={imagesLeft}
           imagesRight={imagesRight}
@@ -33,7 +33,7 @@ export default async function Home() {
           info={info[0]}
           imprint={imprint[0]}
         />
-      </div>
+      </div> */}
     </main>
   );
 }
