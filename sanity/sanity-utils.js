@@ -29,3 +29,9 @@ export async function getInfo() {
     groq`*[_type == "info"]{...}`
   );
 }
+
+export async function getImprint() {
+  return client.fetch(
+    groq`*[_type == "imprint"]{...}`
+  );
+}

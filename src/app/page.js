@@ -7,6 +7,7 @@ import {
   getImagesRight,
   getImagesMobile,
   getInfo,
+  getImprint,
 } from "../../sanity/sanity-utils";
 
 export default async function Home() {
@@ -14,14 +15,24 @@ export default async function Home() {
   const imagesRight = await getImagesRight();
   const imagesMobile = await getImagesMobile();
   const info = await getInfo();
+  const imprint = await getImprint();
 
   return (
     <main className={styles.main}>
       <div className={styles.desktop}>
-        <Main imagesLeft={imagesLeft} imagesRight={imagesRight} info={info} />
+        <Main
+          imagesLeft={imagesLeft}
+          imagesRight={imagesRight}
+          info={info[0]}
+          imprint={imprint[0]}
+        />
       </div>
       <div className={styles.mobile}>
-        <MainMobile imagesMobile={imagesMobile} info={info[0]} />
+        <MainMobile
+          imagesMobile={imagesMobile}
+          info={info[0]}
+          imprint={imprint[0]}
+        />
       </div>
     </main>
   );

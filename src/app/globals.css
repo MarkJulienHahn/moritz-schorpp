@@ -7,17 +7,27 @@
   margin: 0;
 }
 
+@font-face {
+  font-family: "Protest";
+  font-style: normal;
+  src: url(../../public/fonts/ProtestGrotesk.ttf) format("truetype"),
+    url(../../public/fonts/ProtestGrotesk.woff) format("woff"),
+    url(../../public/fonts/ProtestGrotesk.woff2) format("woff2");
+}
+
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: sans-serif;
   letter-spacing: 0.5px;
+  font-family: "Protest";
+  font-variation-settings: "wght" 85
 }
 
 ::selection {
-  background: transparent; 
-  color: lightgrey
+  background: transparent;
+  color: lightgrey;
 }
 
 a {
@@ -25,10 +35,14 @@ a {
   text-decoration: none;
 }
 
+b, strong {
+  font-variation-settings: "wght" 125
+}
+
 p {
   font-size: 10pt;
   line-height: 15pt;
-  cursor: default
+  cursor: default;
 }
 
 .swiper {

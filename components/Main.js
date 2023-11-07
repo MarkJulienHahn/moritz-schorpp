@@ -3,12 +3,14 @@ import { useState, useEffect } from "react";
 
 import styles from "../src/app/page.module.css";
 import ImageComp from "./ImageComp.js";
+import Imprint from "./Imprint.js";
 
-// import PortableText from "react-portable-text";
+import PortableText from "react-portable-text";
 
-const Main = ({ imagesLeft, imagesRight, info }) => {
+const Main = ({ imagesLeft, imagesRight, info, imprint }) => {
   const [indexLeft, setIndexLeft] = useState(0);
   const [indexRight, setIndexRight] = useState(0);
+  const [showImprint, setShowImprint] = useState(false);
   const time = 2000;
 
   useEffect(() => {
@@ -31,27 +33,24 @@ const Main = ({ imagesLeft, imagesRight, info }) => {
 
   return (
     <>
+      <Imprint
+        imprint={imprint}
+        showImprint={showImprint}
+        setShowImprint={setShowImprint}
+      />
       <div className={styles.imgWrapper}>
         <div className={styles.overlay}>
-          <p>
-            <b>Moritz Schorpp</b> (b. 1994) is a portrait and documentary
-            photographer, currently studying Visual Journalism and Documentary
-            Photography at Hochschule Hanover, Germany.
-          </p>
-          {/* <PortableText content={info.text} /> */}
+          <PortableText content={info.text} />
         </div>
         <ImageComp image={imagesLeft[indexLeft]} />
       </div>
       <div className={styles.imgWrapper}>
         <div className={styles.overlay}>
+          <PortableText content={info.textLeft} />
           <p>
-            For any enquiries, collaborations, portfolio requests, prints and
-            ideas please feel free to get in touch. <br />
-            <br /> (+49) 174 69 48 311
+            <br /> {info.phone}
             <br />
-            <a href="mailto:mail@moritzschorpp.de">
-              mail@moritzschorpp.de
-            </a>{" "}
+            <a href={`mailto:${info.email}`}>{info.email}</a>
             <br />
             <br />
             <a
@@ -64,10 +63,8 @@ const Main = ({ imagesLeft, imagesRight, info }) => {
             </a>
             <br />
             <a
-              href="https://www.instagram.com/moritz_schorpp/?hl=de"
-              target="blank"
-              rel="_noreferrer"
-              style={{ textDecoration: "underline" }}
+              onClick={() => setShowImprint(true)}
+              style={{ textDecoration: "underline", cursor: "pointer" }}
             >
               Imprint / privacy
             </a>

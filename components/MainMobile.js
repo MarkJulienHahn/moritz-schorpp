@@ -2,14 +2,16 @@
 
 import { useState, useEffect } from "react";
 
-// import PortableText from "react-portable-text"
+import PortableText from "react-portable-text";
 
 import styles from "../src/app/page.module.css";
 import ImageComp from "./ImageComp.js";
+import Imprint from "./Imprint.js";
 
-const Main = ({ imagesMobile }) => {
+const Main = ({ imagesMobile, info, imprint }) => {
   const [indexLeft, setIndexLeft] = useState(0);
   const [overlay, setOverlay] = useState(false);
+  const [showImprint, setShowImprint] = useState(false);
 
   const resetOverlay = () => {
     setOverlay(false);
@@ -32,25 +34,25 @@ const Main = ({ imagesMobile }) => {
 
   return (
     <>
+      <Imprint
+        imprint={imprint}
+        showImprint={showImprint}
+        setShowImprint={setShowImprint}
+      />
       <div className={styles.imgWrapper} onClick={() => setOverlay(!overlay)}>
         <div
           className={styles.overlay}
           style={{ opacity: overlay ? "1" : "0" }}
         >
-
-
+          <PortableText content={info.text} />
           <p>
-            <b>Moritz Schorpp</b> (b. 1994) is a portrait and documentary
-            photographer, currently studying Visual Journalism and Documentary
-            Photography at Hochschule Hanover, Germany.
             <br />
+          </p>
+          <PortableText content={info.textLeft} />
+          <p>
+            <br /> {info.phone}
             <br />
-            For any enquiries, collaborations, portfolio requests, prints and ideas please feel free to get in touch.<br />
-            <br /> (+49) 174 69 48 311
-            <br />
-            <a href="mailto:mail@moritzschorpp.de">
-              mail@moritzschorpp.de
-            </a>{" "}
+            <a href={`mailto:${info.email}`}>{info.email}</a>
             <br />
             <br />
             <a
@@ -63,10 +65,8 @@ const Main = ({ imagesMobile }) => {
             </a>
             <br />
             <a
-              href="https://www.instagram.com/moritz_schorpp/?hl=de"
-              target="blank"
-              rel="_noreferrer"
-              style={{ textDecoration: "underline" }}
+              onClick={() => setShowImprint(true)}
+              style={{ textDecoration: "underline", cursor: "pointer" }}
             >
               Imprint / privacy
             </a>
