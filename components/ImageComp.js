@@ -16,8 +16,6 @@ const ImageComp = ({ image }) => {
       : setImageWidth(800);
   }, [windowWidth]);
 
-  console.log(image);
-
   return (
     <div className={styles.imgInner}>
       <Image
