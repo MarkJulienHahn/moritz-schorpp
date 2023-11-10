@@ -11,7 +11,7 @@ const Main = ({ imagesLeft, imagesRight, info, imprint }) => {
   const [indexLeft, setIndexLeft] = useState(0);
   const [indexRight, setIndexRight] = useState(0);
   const [showImprint, setShowImprint] = useState(false);
-  const time = 2000;
+  const time = 2500;
 
   useEffect(() => {
     let leftTurn = true;

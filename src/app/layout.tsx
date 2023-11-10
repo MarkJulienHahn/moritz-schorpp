@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Moritz Schorpp",
   description:
-    "Moritz Schorpp (b. 1994) is a portrait and documentary photographer, currently studying Visual Journalism and Documentary Photography at Hochschule Hanover, Germany.",
+    "Moritz Schorpp is a photographer based in Hanover (GER) and Freiburg (GER) focusing on portrait and documentary practices.",
 };
 
 export default function RootLayout({

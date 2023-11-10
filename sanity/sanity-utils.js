@@ -6,6 +6,8 @@ const client = createClient({
   apiVersion: "2023-09-26",
 });
 
+export default client;
+
 export async function getImagesLeft() {
   return client.fetch(
     groq`*[_type == "imagesLeft"]|order(orderRank){"alt": image.alt, "image": image.asset->{...}}`
@@ -25,13 +27,9 @@ export async function getImagesMobile() {
 }
 
 export async function getInfo() {
-  return client.fetch(
-    groq`*[_type == "info"]{...}`
-  );
+  return client.fetch(groq`*[_type == "info"]{...}`);
 }
 
 export async function getImprint() {
-  return client.fetch(
-    groq`*[_type == "imprint"]{...}`
-  );
+  return client.fetch(groq`*[_type == "imprint"]{...}`);
 }

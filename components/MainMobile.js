@@ -17,7 +17,7 @@ const Main = ({ imagesMobile, info, imprint }) => {
     setOverlay(false);
   };
 
-  const time = 2000;
+  const time = 2500;
 
   useEffect(() => {
     const interval = setInterval(() => {
